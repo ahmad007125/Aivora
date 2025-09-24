@@ -1,0 +1,32 @@
+export const blogs = [
+  {
+    id: 1,
+    slug: "ui-design-principles",
+    title: "UI Design Principles",
+    description: "Creating clean and user-friendly interfaces.",
+    content: "Full blog content goes here...",
+    category: "UI/UX",
+    date: "2025-09-20",
+    featured: true,
+  },
+  {
+    id: 2,
+    slug: "nextjs-routing-guide",
+    title: "Next.js Routing Guide",
+    description: "Learn dynamic routes in Next.js App Router.",
+    content: "Full content for Next.js routing...",
+    category: "Development",
+    date: "2025-09-15",
+    featured: false,
+  },
+  {
+    id: 3,
+    slug: "tailwind-shadcn-ui",
+    title: "Tailwind + Shadcn UI",
+    description: "Build minimal and modern UI components.",
+    content: "Full guide on combining Tailwind + Shadcn UI...",
+    category: "Design",
+    date: "2025-09-10",
+    featured: false,
+  },
+];
