@@ -1,6 +1,7 @@
 import Link from "next/link";
+import type { Blog } from "@/data/blog";
 
-export default function FeaturedBlog({ blog } : { blog: any }) {
+export default function FeaturedBlog({ blog } : { blog: Blog }) {
   return (
     <section className="p-6 bg-blue-700 text-white rounded-xl shadow">
       <h2 className="text-lg uppercase mb-2">Featured</h2>

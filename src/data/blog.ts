@@ -1,4 +1,16 @@
-export const blogs = [
+export type Blog = {
+  id: number;
+  slug: string;
+  title: string;
+  description: string;
+  content: string;
+  category: string;
+  date: string; // ISO date
+  featured: boolean;
+  image?: string;
+};
+
+export const blogs: Blog[] = [
   {
     id: 1,
     slug: "ui-design-principles",

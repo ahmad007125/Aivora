@@ -1,13 +1,13 @@
 "use client";
 import { useMemo, useState } from "react";
-import { blogs } from "@/data/blog";
+import { blogs, type Blog } from "@/data/blog";
 import BlogsCard from "@/components/BlogsCard";
 
 type SortOption = "Newest" | "Oldest" | "Featured";
 
 export default function BlogPage() {
   const [sortBy, setSortBy] = useState<SortOption>("Newest");
-  const [category, setCategory] = useState<string | "All">("All");
+  const [category, setCategory] = useState<Blog["category"] | "All">("All");
   const [page, setPage] = useState(1);
 
   const categories = useMemo(
@@ -48,7 +48,7 @@ export default function BlogPage() {
             <button
               key={c}
               onClick={() => {
-                setCategory(c as any);
+                setCategory(c as Blog["category"] | "All");
                 setPage(1);
               }}
               className={`px-3 py-1 rounded-full border ${

@@ -1,8 +1,9 @@
 import Link from "next/link";
 import CategoryBadge from "./CategoryBadge";
 import Image from "next/image";
+import type { Blog } from "@/data/blog";
 
-export default function BlogsCard({ blog }: { blog: any }) {
+export default function BlogsCard({ blog }: { blog: Blog }) {
   return (
     <Link href={`/blog/${blog.slug}`} className="block">
       <div className="p-4 bg-card text-card-foreground rounded-xl border shadow-sm hover:shadow-lg transition">
