@@ -2,7 +2,7 @@ import "./globals.css";
 import { Inter } from "next/font/google";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import { ThemeProvider } from "next-themes";
+import { ThemeProviderClient } from "@/components/ThemeProviderClient";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -15,13 +15,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body className={`${inter.className} bg-background text-foreground flex flex-col justify-between min-h-screen`}>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+        <ThemeProviderClient>
           <div>
             <Header />
             <main className="container mx-auto px-4 py-6">{children}</main>
           </div>
           <Footer />
-        </ThemeProvider>
+        </ThemeProviderClient>
       </body>
     </html>
   );

@@ -8,8 +8,9 @@ export async function generateStaticParams() {
   return categories.map((c) => ({ slug: c }));
 }
 
-export default function CategoryPage({ params }: { params: { slug: string } }) {
-  const slug = params.slug.toLowerCase();
+export default async function CategoryPage(props: { params: Promise<{ slug: string }> }) {
+  const { slug: slugParam } = await props.params;
+  const slug = slugParam.toLowerCase();
   const categoryTitle = blogs.find((b) => b.category.toLowerCase() === slug)?.category || slug;
   const inCategory = blogs
     .filter((b) => b.category.toLowerCase() === slug)

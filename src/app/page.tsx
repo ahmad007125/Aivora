@@ -24,7 +24,7 @@ export default function HomePage() {
       {/* Hero */}
       <section className="relative overflow-hidden rounded-2xl border bg-card">
         <div className="absolute inset-0 opacity-10">
-          <Image src="/ui-ux-design.png" alt="Hero Background" fill className="object-cover" />
+          <Image src="/ui-ux-design.png" alt="Hero Background" fill sizes="100vw" className="object-cover" />
         </div>
         <div className="relative p-10 md:p-16">
           <h1 className="text-3xl md:text-5xl font-bold mb-4">Design. Develop. Share.</h1>
