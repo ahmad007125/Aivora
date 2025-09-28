@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { ThemeProviderClient } from "@/components/ThemeProviderClient";
+// import PageTransition from "@/components/PageTransition";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,7 +19,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <ThemeProviderClient>
           <div>
             <Header />
-            <main className="container mx-auto px-4 py-6">{children}</main>
+            <main className="container mx-auto px-4 py-6 max-w-6xl">
+              {/* <PageTransition>{children}</PageTransition> */}
+              {children}
+            </main>
           </div>
           <Footer />
         </ThemeProviderClient>

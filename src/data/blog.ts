@@ -5,7 +5,7 @@ export type Blog = {
   description: string;
   content: string;
   category: string;
-  date: string; // ISO date
+  date: string;
   featured: boolean;
   image?: string;
 };
@@ -36,6 +36,7 @@ export const blogs: Blog[] = [
   {
     id: 3,
     slug: "tailwind-shadcn-ui",
+    image: '/next.svg',
     title: "Tailwind + Shadcn UI",
     description: "Build minimal and modern UI components.",
     content: "Full guide on combining Tailwind + Shadcn UI...",
@@ -46,6 +47,7 @@ export const blogs: Blog[] = [
   {
     id: 4,
     slug: "nextjs-routing-basics",
+    image: '/ui-ux-design.png',
     title: "Next.js Routing Basics",
     description: "Learn the core concepts of Next.js routing system.",
     content: "A beginner-friendly guide covering file-based routing, dynamic routes, and nested layouts in Next.js.",
@@ -66,6 +68,7 @@ export const blogs: Blog[] = [
   {
     id: 6,
     slug: "responsive-design-tailwind",
+    image: '/vercel.svg',
     title: "Responsive Design with Tailwind",
     description: "Create mobile-first responsive layouts using Tailwind CSS.",
     content: "Detailed walkthrough of breakpoints, responsive utilities, and building adaptive layouts with Tailwind.",
