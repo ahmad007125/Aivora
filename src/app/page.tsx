@@ -101,7 +101,7 @@ function CategoriesSection({ categories }: { categories: string[] }) {
           <button
             key={cat}
             onClick={() => setSelected(cat)}
-            className={`px-4 py-2 rounded-full border transition ${
+            className={`px-4 py-2 rounded-full border transition cursor-pointer ${
               selected === cat ? "bg-foreground text-background" : "bg-card hover:bg-accent"
             }`}
           >

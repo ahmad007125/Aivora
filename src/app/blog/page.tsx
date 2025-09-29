@@ -51,7 +51,7 @@ export default function BlogPage() {
                 setCategory(c as Blog["category"] | "All");
                 setPage(1);
               }}
-              className={`px-3 py-1 rounded-full border ${
+              className={`px-4 py-2 rounded-full border cursor-pointer ${
                 category === c ? "bg-foreground text-background" : "bg-card"
               }`}
             >
