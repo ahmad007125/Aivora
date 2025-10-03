@@ -1,36 +1,15 @@
 // import { blogs } from "@/data/blog";
 // import Link from "next/link";
-import { blogs } from "@/data/blog";
-import BlogsCard from "@/components/BlogsCard";
+import { redirect } from "next/navigation";
+import { slugifyCategory } from "@/lib/utils";
 
 export async function generateStaticParams() {
-  const categories = Array.from(new Set(blogs.map((b) => b.category.toLowerCase())));
-  return categories.map((c) => ({ slug: c }));
+  return [];
 }
 
 export default async function CategoryPage(props: { params: Promise<{ slug: string }> }) {
-  const { slug: slugParam } = await props.params;
-  const slug = slugParam.toLowerCase();
-  const categoryTitle = blogs.find((b) => b.category.toLowerCase() === slug)?.category || slug;
-  const inCategory = blogs
-    .filter((b) => b.category.toLowerCase() === slug)
-    .sort((a, b) => (a.date < b.date ? 1 : -1));
-
-  return (
-    <div className="space-y-6">
-      <h1 className="text-3xl font-bold">Category: {categoryTitle}</h1>
-
-      {inCategory.length === 0 ? (
-        <p>No posts found in this category.</p>
-      ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {inCategory.map((b) => (
-            <BlogsCard key={b.id} blog={b} />
-          ))}
-        </div>
-      )}
-    </div>
-  );
+  const { slug } = await props.params;
+  redirect(`/blog/${slugifyCategory(slug)}`);
 }
 
 // export async function generateStaticParams() {
