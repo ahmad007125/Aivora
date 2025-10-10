@@ -26,7 +26,7 @@ export default function ThemeToggle() {
   return (
     <button
       onClick={toggleTheme}
-      className="relative w-9 h-9 rounded-md border border-input bg-transparent hover:bg-accent hover:text-accent-foreground inline-flex items-center justify-center transition-colors"
+      className="relative w-9 h-9 rounded-md border border-input bg-transparent hover:bg-accent hover:text-accent-foreground inline-flex items-center justify-center transition-colors cursor-pointer"
       aria-label="Toggle theme"
     >
       <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
