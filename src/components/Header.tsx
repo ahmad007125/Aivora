@@ -25,8 +25,8 @@ export default function Header() {
   []);
 
   return (
-    <header className="bg-background/80 backdrop-blur-md shadow sticky top-0 z-1">
-      <nav className={`container mx-auto px-4 flex justify-between items-center transition-all duration-400 ease-in-out py-6 max-w-6xl ${scrolled ? "h-[76px]" : "h-[100px]"}`}>
+    <header className="bg-background/80 backdrop-blur-md sticky top-0 z-1">
+      <nav className={`container mx-auto px-4 flex justify-between items-center transition-all duration-400 ease-in-out py-6 max-w-6xl ${scrolled ? "h-[76px] shadow" : "h-[100px]"}`}>
         <Link href="/" className="text-xl font-bold text-foreground">Aivora</Link>
         <div className="flex items-center gap-4">
           <div className="space-x-4">
