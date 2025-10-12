@@ -1,4 +1,4 @@
-// 'use client';
+'use client';
 
 import { Blog, blogs } from "@/data/blog";
 import BlogsCard from "../components/BlogsCard";
@@ -7,15 +7,18 @@ import Link from "next/link";
 // import { useState } from "react";
 import { Badge } from "@/components/ui/badge";
 import { slugifyCategory } from "@/lib/utils";
+import { useState } from "react";
 
 export default function FeaturedSection() {
   // Prepare data inside the component instead of props
   const featuredThree: Blog[] = blogs.filter((b) => b.featured).slice(0, 3);
   const popularThree: Blog[] = blogs.filter((b) => b.popular).slice(0, 4);
+  const designThree: Blog[] = blogs.filter((b) => b.category === "Design").slice(0, 3);
   const latestThree: Blog[] = [...blogs]
     .sort((a, b) => (a.date < b.date ? 1 : -1))
     .slice(0, 4);
   const categories: string[] = Array.from(new Set(blogs.map((b) => b.category)));
+  const [active, setActive] = useState<number | null>(null);
 
   // Safety check
   if (!featuredThree || featuredThree.length < 3) return null;
@@ -72,7 +75,6 @@ export default function FeaturedSection() {
 
       {/* Latest Posts */}
       <section>
-
         <h2 className="text-2xl font-bold mb-4">Latest Posts</h2>
         <div className="grid md:gap-x-4 gap-y-4 sm:grid-cols-3 grid-cols-1">
           <div className="col-span-2">
@@ -87,7 +89,47 @@ export default function FeaturedSection() {
             <p className="text-sm">Aviora is a blog platform focusing on helping businesses improve their online presence and reputation, especially via strategies like optimizing Google Business Profile and managing customer feedback.</p>
           </div>
         </div>
+      </section>
 
+      {/* Design Posts */}
+      <section className="w-full max-w-6xl mx-auto">
+        <h2 className="text-2xl md:text-3xl font-bold mb-6 text-foreground">
+          Design Posts
+        </h2>
+
+        <div className="flex gap-4 md:h-[350px] h-[250px]">
+          {designThree.map((b) => (
+            <div
+              key={b.id}
+              onMouseEnter={() => setActive(b.id)}
+              onMouseLeave={() => setActive(null)}
+              className={`relative overflow-hidden rounded-xl cursor-pointer transition-all duration-400 ease-in-out
+                ${active === b.id ? "flex-[3]" : active ? "flex-[1]" : "flex-1"}
+              `}
+            >
+              <Image
+                src={b.image || "/no-img.jpg"}
+                alt={b.title}
+                fill
+                className={`object-cover transition-transform duration-400 ease-in-out
+                  ${active === b.id ? "scale-110" : "scale-100"}
+                `}
+              />
+              <div
+                className={`absolute inset-0 flex flex-col items-center justify-center bg-black/40 text-white transition-opacity duration-500 p-2 ${
+                  active === b.id ? "opacity-100" : "opacity-0 md:opacity-0"
+                }`}
+              >
+                <h3 className="text-md sm:text-lg md:text-xl font-semibold mb-3 sm:text-left text-center">
+                  {b.title}
+                </h3>
+                <button className="px-4 py-2 bg-indigo-500 hover:bg-indigo-600 rounded-md text-sm font-medium transition">
+                  Read More
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
       </section>
 
       {/* Popular Posts */}

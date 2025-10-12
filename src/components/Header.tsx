@@ -93,7 +93,7 @@ export default function Header() {
       {/* Mobile Menu Overlay */}
       {mobileMenuOpen && (
         <div
-          className="fixed inset-0 bg-black/50 backdrop-blur-sm transition-opacity duration-300 md:hidden z-40"
+          className="overlay fixed inset-0 bg-black/50 backdrop-blur-sm transition-opacity duration-300 md:hidden z-40 h-screen"
           onClick={closeMobileMenu}
           style={{ 
             top: scrolled ? '76px' : '100px',
@@ -104,16 +104,16 @@ export default function Header() {
 
       {/* Mobile Menu */}
       <div
-        className={`fixed right-0 w-[75%] max-w-sm shadow-md transition-all duration-500 ease-in-out md:hidden z-50 
+        className={`flex fixed right-0 w-[75%] max-w-sm shadow-md transition-all duration-500 ease-in-out md:hidden z-50 backdrop-blur-md 
           ${mobileMenuOpen ? 'translate-x-0' : 'translate-x-full !w-0 opacity-0 overflow-hidden'}
-          ${scrolled ? "bg-background/80 backdrop-blur-md" : "bg-background"}  
+          ${scrolled ? "bg-background/90" : "bg-background"}  
         `}
         style={{ 
           top: scrolled ? '76px' : '100px',
           height: scrolled ? 'calc(100vh - 76px)' : 'calc(100vh - 100px)'
         }}
       >
-        <nav className={`flex flex-col space-y-1 p-8`}>
+        <nav className={`flex flex-1 flex-col space-y-1 p-8`}>
           {navLinks.map((link, index) => (
             <Link
               key={link.href}
